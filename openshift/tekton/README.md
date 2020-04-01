@@ -47,7 +47,7 @@ Run the Pipeline by creating a PipelineRun resource such as the following:
 ```bash
 NAMESPACE=myapp
 cat << EOF | oc apply -f -
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
   name: myapp-openshift

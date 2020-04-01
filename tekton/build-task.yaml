@@ -1,22 +1,22 @@
-apiVersion: tekton.dev/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: build-docker
 spec:
-  inputs:
-    resources:
+  resources:
+    inputs:
       - name: source
         type: git
-    params:
-      - name: DOCKERFILE
-        description: Path to the Dockerfile to build.
-        default: ./Dockerfile
-      - name: CONTEXT
-        description: The build context used by Docker.
-        default: ./
-      - name: BUILDER_IMAGE
-        description: The image on which builds will run
-        default: myapp:latest
+  params:
+    - name: DOCKERFILE
+      description: Path to the Dockerfile to build.
+      default: ./Dockerfile
+    - name: CONTEXT
+      description: The build context used by Docker.
+      default: ./
+    - name: BUILDER_IMAGE
+      description: The image on which builds will run
+      default: myapp:latest
   steps:
     - name: docker
       image: docker
